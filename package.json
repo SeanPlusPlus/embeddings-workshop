@@ -1,17 +1,23 @@
 {
-  "name": "embeddings-workshop",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "devDependencies": {
-    "@biomejs/biome": "^2.4.9",
-    "@types/bun": "latest",
-    "husky": "^9.1.7"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "^3.1019.0"
-  }
+	"name": "embeddings-workshop",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.9",
+		"@types/bun": "latest",
+		"husky": "^9.1.7"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"scripts": {
+		"hello": "bun run src/hello.ts",
+		"check": "biome check .",
+		"fix": "biome check --fix .",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"@aws-sdk/client-bedrock-runtime": "^3.1019.0"
+	}
 }
