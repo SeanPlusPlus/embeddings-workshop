@@ -27,11 +27,25 @@ function cosineSimilarity(a: number[], b: number[]): number {
 	return dot / (Math.sqrt(magA) * Math.sqrt(magB));
 }
 
+function spinner(message: string) {
+	const frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
+	let i = 0;
+	const id = setInterval(() => {
+		process.stdout.write(`\r${frames[i++ % frames.length]} ${message}`);
+	}, 80);
+	return () => {
+		clearInterval(id);
+		process.stdout.write(`\r✓ ${message}\n`);
+	};
+}
+
 const terms = ["cat", "kitten", "spaceship"];
 
+const stop = spinner(`Embedding ${terms.length} terms via Titan v2...`);
 const embeddings = await Promise.all(terms.map(embed));
+stop();
 
-console.log("Cosine similarities:");
+console.log("\nCosine similarities:");
 for (let i = 0; i < terms.length; i++) {
 	for (let j = i + 1; j < terms.length; j++) {
 		const sim = cosineSimilarity(embeddings[i], embeddings[j]);
