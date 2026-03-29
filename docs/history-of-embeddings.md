@@ -131,6 +131,23 @@ The model has never been told that cats and kittens are related. It learned this
 
 Spearman would be proud.
 
+## A More Practical Demo: Ticket Similarity
+
+The cat/kitten example is cute, but here's where it gets useful. We took 10 fictional (but realistic) engineering tickets — a mix of performance work, React bugs, CI/CD tasks, and design updates — and embedded each ticket's summary.
+
+The model instantly clusters them by *meaning*, not by keywords:
+
+- The three **perf tickets** (lazy-loading, render-blocking CSS, responsive images) land near each other
+- The three **React hook bugs** (useMemo, useEffect) cluster together
+- The **CI/CD and monitoring** tickets group up
+- The **design/styling** tickets pair off
+
+Then we asked a plain English question — *"performance optimization for web page loading"* — and the model ranked all 10 tickets by relevance. The perf tickets floated to the top, even though none of them literally contain the phrase "performance optimization."
+
+This is **semantic search**: finding things by meaning rather than keyword matching. It's how modern search engines, recommendation systems, and AI assistants retrieve relevant information. And it's built on the exact same foundation — compress observed data into a dense space where similar things are close together.
+
+The psychologists just used test scores. We're using ticket summaries. Same math, different century.
+
 ---
 
 *Written up after the beers wore off. Any errors are the IPA's fault.*

@@ -13,6 +13,7 @@
 	},
 	"scripts": {
 		"hello": "bun run src/hello.ts",
+		"jira": "bun run src/jira-tickets.ts",
 		"check": "biome check .",
 		"fix": "biome check --fix .",
 		"prepare": "husky"
