@@ -18,4 +18,16 @@ Hands-on exploration of embedding models (Amazon Titan, etc.) — how they work,
 
 ```bash
 bun install
+bun run hello
 ```
+
+Embeds three terms via Titan v2 and prints cosine similarities — two will be close, one will be distant:
+
+```
+Cosine similarities:
+  "cat" <-> "kitten": 0.4376
+  "cat" <-> "spaceship": 0.1539
+  "kitten" <-> "spaceship": 0.0974
+```
+
+Requires AWS credentials with Bedrock access in `us-east-1`.
